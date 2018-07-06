@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://status.im/blog</id>
+    <title>Status Technikon Blog</title>
+    <updated>2018-06-20T06:00:00Z</updated>
+    <generator>Feed for Node.js</generator>
+    <link rel="alternate" href="https://status.im/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest Status Technikon news and events.</subtitle>
+    <logo>https://status.im/img/logo_white.png</logo>
+    <rights>Copyright © 2018 Status.im</rights>
+    <entry>
+        <title type="html"><![CDATA[TECH TALK: The Road to ULC]]></title>
+        <id>https://status.im/blog/2018/06/20/tech-talk-frank-ulc.html</id>
+        <link href="https://status.im/blog/2018/06/20/tech-talk-frank-ulc.html">
+        </link>
+        <updated>2018-06-20T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p><a href="https://www.youtube.com/watch?v=7kVCzU45P6U"><img src="/blog/assets/tech_talk_ulc.png" alt="Open Bounty Tutorials"></a></p>
+]]></summary>
+        <author>
+            <name>Frank Mueller</name>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Datasets By Status]]></title>
+        <id>https://status.im/blog/2018/06/19/datasets-by-status.html</id>
+        <link href="https://status.im/blog/2018/06/19/datasets-by-status.html">
+        </link>
+        <updated>2018-06-19T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>There have been <a href="https://github.com/status-im/datasets/blob/master/201805_EIP0_shared_values/eip0_shared_values_wordcloud_topic_modelling.ipynb">two</a> <a href="http://ethprize.io/">initiatives</a> recently to gather data from the Ethereum community in the form of text-based questions and interviews. Status has also been doing a lot of UX research and gathering all kinds of user data.</p>
+]]></summary>
+        <author>
+            <name>Andy Tudhope</name>
+            <uri>http://twitter.com/cryptowanderer</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Status Communication Protocol Changes]]></title>
+        <id>https://status.im/blog/2018/06/01/new-protocol.html</id>
+        <link href="https://status.im/blog/2018/06/01/new-protocol.html">
+        </link>
+        <updated>2018-06-01T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>For the last year, Status has been focussed on research and development of the core protocols that make up Ethereum, especially Whisper - the &quot;dark&quot;, peer-to-peer, end-to-end encrypted messaging protocol. We have worked with various people to bring Whisper from v2 to v5 and now v6, both of which show great performance and reliability improvements, without compromising on the original vision of a truly decentralized chat protocol.</p>
+]]></summary>
+        <author>
+            <name>Andy Tudhope and Eric Dvorsak</name>
+            <uri>http://twitter.com/cryptowanderer</uri>
+        </author>
+    </entry>
+</feed>

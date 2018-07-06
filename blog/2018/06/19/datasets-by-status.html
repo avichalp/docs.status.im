@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Datasets By Status · Status Technikon</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="There have been [two](https://github.com/status-im/datasets/blob/master/201805_EIP0_shared_values/eip0_shared_values_wordcloud_topic_modelling.ipynb) [initiatives](http://ethprize.io/) recently to gather data from the Ethereum community in the form of text-based questions and interviews. Status has also been doing a lot of UX research and gathering all kinds of user data. "/><meta property="og:title" content="Datasets By Status · Status Technikon"/><meta property="og:type" content="website"/><meta property="og:url" content="https://status.im/blog/2018/06/19/datasets-by-status.html"/><meta property="og:description" content="There have been [two](https://github.com/status-im/datasets/blob/master/201805_EIP0_shared_values/eip0_shared_values_wordcloud_topic_modelling.ipynb) [initiatives](http://ethprize.io/) recently to gather data from the Ethereum community in the form of text-based questions and interviews. Status has also been doing a lot of UX research and gathering all kinds of user data. "/><meta property="og:image" content="https://status.im/img/og_logo.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://status.im/img/og_logo.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://status.im/blog/atom.xml" title="Status Technikon Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://status.im/blog/feed.xml" title="Status Technikon Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener("DOMContentLoaded", function(){
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/logo_white.png" alt="Status Technikon"/><h2 class="headerTitleWithLogo">Status Technikon</h2></a><a href="/en/versions.html"><h3>0.0.2</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/en/introduction.html" target="_self">Docs</a></li><li class=""><a href="https://ideas.status.im" target="_self">Ideas</a></li><li class=""><a href="/docs/en/testing.html" target="_self">Testing</a></li><li class=""><a href="/docs/en/intro_whisper.html" target="_self">Whisper</a></li><li class=""><a href="/docs/en/userguide.html" target="_self">User Guide</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class="siteNavGroupActive"><a href="/blog" target="_self">Blog</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/ja">日本語</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(){
+          if(languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Recent Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Recent Posts</h3><ul><li class="navListItem"><a class="navItem" href="/blog/2018/06/20/tech-talk-frank-ulc.html">TECH TALK: The Road to ULC</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/blog/2018/06/19/datasets-by-status.html">Datasets By Status</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/06/01/new-protocol.html">Status Communication Protocol Changes</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer documentContainer postContainer blogContainer"><div class="wrapper"><div class="lonePost"><div class="post"><header class="postHeader"><h1><a href="/blog/2018/06/19/datasets-by-status.html">Datasets By Status</a></h1><p class="post-meta">June 19, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="http://twitter.com/cryptowanderer" target="_blank" rel="noreferrer noopener">Andy Tudhope</a></p></div></header><div><span><p>There have been <a href="https://github.com/status-im/datasets/blob/master/201805_EIP0_shared_values/eip0_shared_values_wordcloud_topic_modelling.ipynb">two</a> <a href="http://ethprize.io/">initiatives</a> recently to gather data from the Ethereum community in the form of text-based questions and interviews. Status has also been doing a lot of UX research and gathering all kinds of user data.</p>
+<!--truncate-->
+<p>All this data needs to be analysed closely and shared with the public in an easy-to-understand way such that everyone interested in Ethereum can see directly what the biggest needs are, what really matters to people in the community, where the best opportunities are, what the most widely-used tools are, and where to find the most insightful and educational resources.</p>
+<p>We have begun that <a href="https://github.com/status-im/datasets">here</a>.</p>
+<p>When it comes to data visualisation, you have several ways to analyze text.</p>
+<ol>
+<li>Word clouds: great for analyzing frequency and sharing punchy insights.</li>
+<li>Topic modelling, which can be broken down into three sub-fields:
+<ol>
+<li><strong>Supervised</strong>: A human says &quot;This is a dog, this is a cat etc&quot;. Generally gives the most accurate results, but is time consuming and can be very biased.</li>
+<li><strong>Unsupervised</strong>: The machine comes up by itself with the cluster. A humans says, &quot;We have this kind of text, find some kind of structure&quot;.  <br>
+Say we want to analyse visitors to website coming between 9-2pm, or 5-8pm from US or Canada. The model can do this - and find patterns we may not have been expecting at all - but it is then up to us to interpret <em>why</em> we have these kind of patterns. <br>
+This is what we are trying to do with the interactive visualisations.</li>
+<li><strong>Semi-supervised</strong>: A human specifies, &quot;There is a business, there is something called 'dinosaurs'&quot; and then tells the model: &quot;try to find something that matches&quot;. This is what we are doing for the word clouds: i.e. telling the model to focus on important words like &quot;web3&quot;, or teaching it that &quot;VS == Visual Studio&quot; and then setting it off to calculate the frequency and patterns by itself.</li>
+</ol></li>
+<li>For more numerical datasets, there are a tonne of other graph-like visualisations to play around with. We're not sure that many of these could be applied to such text-heavy and unstructured data, but are thinking about how to show in an interactive way the key things that were said about certain topics.  <br>
+This means choosing something like &quot;Truffle&quot; and hopefully being able to show both that testing and prototyping is easy, but that adapting it for complex use cases is harder.</li>
+</ol>
+<p>So, how do we actually do this for EIP0 and ETHPrize (and all the other datasets to come)?</p>
+<p>Sentences are broken down into &quot;tokens&quot; (i.e. individual words), which are organised in associative arrays. We then calculate the frequencies of these tokens and assign weights to them probabilistically to map out the <a href="https://www.kaggle.com/mratsim/state-of-the-art-nlp-on-ethereum-dev-interviews">interactive visualisation</a> showing circles of linked ideas.</p>
+<p><img src="/blog/assets/components.png" alt="Principal Component Analysis"></p>
+<p>You might be asking, &quot;What do the positions on the graph really indicate? And why do they become red when I hover over them and show up different bars on the accompanying chart?&quot;</p>
+<p>The size of any given circle indicates the weight of the topic in the whole dataset (closely related to the frequency with which certain terms were mentioned, shown in the red bars on the chart). You can use these frequencies, when the data is highly correlated, to decide on names and categories with which to understand the patterns discovered in the data more easily. Data still needs interpretation...</p>
+<p>The actual positions of the circles on the graph have to do with something called the Principal Component Analysis.</p>
+<ol>
+<li>You transform the data into its &quot;principal components&quot; - which means changing the base along which you view it. You can split the data along any number of axes, but 2 or 3 are obviously easiest to visualise. The idea when doing this is to split the axes in such a way that it captures the most variance between the data.</li>
+<li>A full description of what Principal Component Analysis can be found on <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Wikipedia</a> but I recommend this <a href="https://plot.ly/ipython-notebooks/principal-component-analysis/">visual example</a>.</li>
+<li>The circles are then mapped in the same plane as the principal components.</li>
+<li><a href="https://github.com/bmabey/pyLDAvis">pyLDAvis</a> is used for the visualisation.</li>
+</ol>
+<p>Even though this is cutting edge stuff, there are no fancy neural networks at this stage. It's also just difficult to handle the data, because it is totally non-numeric and unstructured. However, there are still some really cool things we can do.</p>
+<p>We first need to do some manual tagging that will help the model identify what is important and focus its search for patterns around certain things we have taught it.</p>
+<p>We use a library called <a href="https://spacy.io/">Spacy</a>, which is a neural network model trained on a dataset called <a href="http://commoncrawl.org/">Common Crawl</a> from all web pages that are available in the world (<a href="https://engineeringblog.yelp.com/2015/03/analyzing-the-web-for-the-price-of-a-sandwich.html">literally growing by terabytes every month!</a>). It's made up of blogs, news and comments in English, all tagged manually (somehow?).</p>
+<p>By tagging the data and training the model a bit and by using awesome libraries like Spacy, we can, for instance, build things that recognise only names in a text, and include them in a word cloud as opposed to the (prettier, but more scattered) one Alex van de Sande did.</p>
+<p><img src="/blog/assets/wordcloud_avsa.png" alt="Word cloud"></p>
+<p>Which is cool, if you understand Ethereum, but not so helpful without a lot of context, which is exactly what we want to avoid. So we tag the data, run it through a neural net and produce the below:</p>
+<p><img src="/blog/assets/neural_net.jpg" alt="Neural network code"></p>
+<p><img src="/blog/assets/wordcloud_neural.png" alt="Word cloud 2"></p>
+<h2><a class="anchor" aria-hidden="true" id="the-really-big-idea"></a><a href="#the-really-big-idea" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Really Big Idea</h2>
+<p>Even more exciting, we can create a dataset trained on GitHub, ethresear.ch, ethereum-magicians.org, Medium, developer news and tooling sites etc. and continually pull data in to analyze, as this sort of methodology scales very well.</p>
+<p>Decentral-AI-ze all the things!!</p>
+</span></div></div><div class="blogSocialSection"></div></div><div class="blog-recent"><a class="button" href="/blog">Recent Posts</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#the-really-big-idea">The Really Big Idea</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo_white.png" alt="Status Technikon" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/intro_dapps.html">Start with DApps</a><a href="/docs/en/build_status_osx.html">#Buidl Guides</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://chat.status.im">Riot Chat</a><a href="https://discuss.status.im">Research Forum</a><a href="https://twitter.com/ethstatus" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/status-im">GitHub</a><a class="github-button" href="https://github.com/status-im/status-react" data-icon="octicon-star" data-count-href="/status-im/status-react/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Status.im</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                
+                apiKey: 'my-api-key',
+                indexName: 'my-index-name',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>

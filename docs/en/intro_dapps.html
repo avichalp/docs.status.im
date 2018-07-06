@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>DApps in Status · Status Technikon</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Status Extensions"/><meta property="og:title" content="DApps in Status · Status Technikon"/><meta property="og:type" content="website"/><meta property="og:url" content="https://status.im/index.html"/><meta property="og:description" content="## Status Extensions"/><meta property="og:image" content="https://status.im/img/og_logo.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://status.im/img/og_logo.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://status.im/blog/atom.xml" title="Status Technikon Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://status.im/blog/feed.xml" title="Status Technikon Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener("DOMContentLoaded", function(){
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/logo_white.png" alt="Status Technikon"/><h2 class="headerTitleWithLogo">Status Technikon</h2></a><a href="/en/versions.html"><h3>0.0.2</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/en/introduction.html" target="_self">Docs</a></li><li class=""><a href="https://ideas.status.im" target="_self">Ideas</a></li><li class=""><a href="/docs/en/testing.html" target="_self">Testing</a></li><li class=""><a href="/docs/en/intro_whisper.html" target="_self">Whisper</a></li><li class=""><a href="/docs/en/userguide.html" target="_self">User Guide</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="/blog" target="_self">Blog</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/ja/intro_dapps.html">日本語</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(){
+          if(languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Build DApps</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/introduction.html">Welcome to Status</a></li><li class="navListItem"><a class="navItem" href="/docs/en/faqs.html">Frequently Asked Questions</a></li></ul></div><div class="navGroup navGroupActive"><h3>Build DApps</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/docs/en/intro_dapps.html">DApps in Status</a></li><li class="navListItem"><a class="navItem" href="/docs/en/embark.html">Embark</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dapp_curation.html">How To Add Your DApp to Status</a></li></ul></div><div class="navGroup navGroupActive"><h3>Build Status</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/build_status_osx.html">Building Status on OSX</a></li><li class="navListItem"><a class="navItem" href="/docs/en/build_status_linux.html">Building Status on Linux</a></li></ul></div><div class="navGroup navGroupActive"><h3>Status Desktop</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/intro_desktop.html">Status Desktop (react-native-qt)</a></li></ul></div><div class="navGroup navGroupActive"><h3>Research</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/intro_research.html">Status Research</a></li><li class="navListItem"><a class="navItem" href="/docs/en/nimbus.html">Nimbus</a></li></ul></div><div class="navGroup navGroupActive"><h3>SNT Use Cases</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/tribute_to_talk.html">Tribute to Talk</a></li><li class="navListItem"><a class="navItem" href="/docs/en/ens_usernames.html">ENS Usernames in Status</a></li><li class="navListItem"><a class="navItem" href="/docs/en/mail_server_incentives.html">Mail Servers and Incentives</a></li></ul></div><div class="navGroup navGroupActive"><h3>Status Open Bounty</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/intro_openbounty.html">Learn the Joy of the Hunt</a></li><li class="navListItem"><a class="navItem" href="/docs/en/faq_openbounty.html">Status Open Bounty FAQ</a></li><li class="navListItem"><a class="navItem" href="/docs/en/status_uses_openbounty.html">How Status Uses Open Bounty</a></li><li class="navListItem"><a class="navItem" href="/docs/en/testing_openbounty.html">Testing Open Bounty</a></li><li class="navListItem"><a class="navItem" href="/docs/en/payout_flow_openbounty.html">Open Bounty Payout Flow</a></li></ul></div><div class="navGroup navGroupActive"><h3>Architecture</h3><ul><li class="navListItem"><a class="navItem" href="/docs/en/status_react_structure.html">Status React Structure</a></li><li class="navListItem"><a class="navItem" href="/docs/en/send_transaction_flow.html">Send Transaction Flow</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/status-im/docs.status.im/edit/develop/docs/intro_dapps.md" target="_blank" rel="noreferrer noopener">Edit</a><h1>DApps in Status</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="status-extensions"></a><a href="#status-extensions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Status Extensions</h2>
+<p>We are working hard to make sure our next iteration of 3rd party developer tools gets shipped soon. Lightweight, they provide native feeling and have access to the full ethereum decentralized experience, augmented by the Status app's unique features.</p>
+<h3><a class="anchor" aria-hidden="true" id="goals"></a><a href="#goals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Goals</h3>
+<p>Status is investing lots of energy to make decentralized primitives available on mobile platforms. Let’s allow ethereum developers to leverage Status' first class features and UX so that they can focus on what they do best: innovate. Open and free, Status is now extensible too.</p>
+<h3><a class="anchor" aria-hidden="true" id="specifically-we-want"></a><a href="#specifically-we-want" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Specifically we want:</h3>
+<ol>
+<li>To make Status awesome for end users who want to easily use mini DApps</li>
+<li>To make Status an appealing way for ethereum devs to extend their work on mobile</li>
+<li>High usage</li>
+<li>Extensions are not applications. They alleviate users from the heavy cost of installing through an appstore.</li>
+<li>A typical scenario consists of a user scanning a QR code using its native mobile camera and being redirect to Status augmented by the extension (after being granted necessary permissions). It can then disappear right after usage or persist depending on user preference. #nofriction</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="design-principles"></a><a href="#design-principles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design principles</h3>
+<p>When it comes to openness and data control, Status sets the bar the highest. To that end the following points will guide our decisions:</p>
+<ol>
+<li>Secure and aware of privacy</li>
+<li>Simple build model and no friction to publish</li>
+<li>Decentralized, controlled by end users</li>
+<li>Open - access to Status and ethereum features</li>
+<li>Smooth on all platforms</li>
+<li>Reusable</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="how-open"></a><a href="#how-open" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How open?</h3>
+<p>Status is inherently malleable. It is Status’ responsibility to choose carefully what is available to extensions and how it can be extended.</p>
+<p>Openness is fundamental to Status. It is based on three pillars: data access, API and extension points.</p>
+<p>There is a delicate balance between providing the access needed to create awesome DApps while ensuring strong data control for users. To that end, a new security model that emphasizes data destination will be considered (in p2p world, the knowledge of what you send and who you send it to is fundamental).</p>
+<h3><a class="anchor" aria-hidden="true" id="data-access"></a><a href="#data-access" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data access</h3>
+<p>Data in status in kept is kept in a single, tree-based entity. Extensions will rely on a query mechanism for accessing subset of this data. Depending on the security granted, extensions might have access to most of the data manipulated by status.</p>
+<p>Specifically those data will be available:</p>
+<ol>
+<li>Local profile / wallet details</li>
+<li>Contacts details</li>
+<li>Local ethereum state</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="api"></a><a href="#api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API</h3>
+<p>APIs are the building blocks used by 3rd party developers. Status offers a set of high-level components alleviating developers from the traditional pains of mobile UI development.</p>
+<ol>
+<li>Ethereum interactions (transactions, contract creation and calls)</li>
+<li>Swarm / IPFS primitives</li>
+<li>Status specific features (modify profile, contacts access, manipulate wallet)</li>
+</ol>
+<p>Also available are the high-level UI components loosely based on the ReactNative model. Those components are the same as the ones used by Status and focus on performance, great UX and ease of use.</p>
+<h3><a class="anchor" aria-hidden="true" id="extension-points"></a><a href="#extension-points" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Extension points</h3>
+<p>Extensions are only as useful as the extensions points are relevant. As a developer, you will be constrained by what can be extended. There is a balance to be found between extensibility and Status identity.</p>
+<p>At first we will allow the following features to be extended:</p>
+<ol>
+<li>Display of chat messages</li>
+<li>Types of commands</li>
+<li>Types of chat</li>
+<li>Display of the wallet’s asset details</li>
+</ol>
+<p>We will refine these extension points according to the feedback we receive.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/faqs.html">← Frequently Asked Questions</a><a class="docs-next button" href="/docs/en/embark.html">Embark →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#status-extensions">Status Extensions</a><ul class="toc-headings"><li><a href="#goals">Goals</a></li><li><a href="#specifically-we-want">Specifically we want:</a></li><li><a href="#design-principles">Design principles</a></li><li><a href="#how-open">How open?</a></li><li><a href="#data-access">Data access</a></li><li><a href="#api">API</a></li><li><a href="#extension-points">Extension points</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo_white.png" alt="Status Technikon" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/intro_dapps.html">Start with DApps</a><a href="/docs/en/build_status_osx.html">#Buidl Guides</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://chat.status.im">Riot Chat</a><a href="https://discuss.status.im">Research Forum</a><a href="https://twitter.com/ethstatus" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/status-im">GitHub</a><a class="github-button" href="https://github.com/status-im/status-react" data-icon="octicon-star" data-count-href="/status-im/status-react/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Status.im</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                
+                apiKey: 'my-api-key',
+                indexName: 'my-index-name',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>

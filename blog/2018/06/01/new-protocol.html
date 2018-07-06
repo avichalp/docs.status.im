@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Status Communication Protocol Changes · Status Technikon</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="For the last year, Status has been focussed on research and development of the core protocols that make up Ethereum, especially Whisper - the &quot;dark&quot;, peer-to-peer, end-to-end encrypted messaging protocol. We have worked with various people to bring Whisper from v2 to v5 and now v6, both of which show great performance and reliability improvements, without compromising on the original vision of a truly decentralized chat protocol."/><meta property="og:title" content="Status Communication Protocol Changes · Status Technikon"/><meta property="og:type" content="website"/><meta property="og:url" content="https://status.im/blog/2018/06/01/new-protocol.html"/><meta property="og:description" content="For the last year, Status has been focussed on research and development of the core protocols that make up Ethereum, especially Whisper - the &quot;dark&quot;, peer-to-peer, end-to-end encrypted messaging protocol. We have worked with various people to bring Whisper from v2 to v5 and now v6, both of which show great performance and reliability improvements, without compromising on the original vision of a truly decentralized chat protocol."/><meta property="og:image" content="https://status.im/img/og_logo.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://status.im/img/og_logo.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://status.im/blog/atom.xml" title="Status Technikon Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://status.im/blog/feed.xml" title="Status Technikon Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener("DOMContentLoaded", function(){
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/logo_white.png" alt="Status Technikon"/><h2 class="headerTitleWithLogo">Status Technikon</h2></a><a href="/en/versions.html"><h3>0.0.2</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/en/introduction.html" target="_self">Docs</a></li><li class=""><a href="https://ideas.status.im" target="_self">Ideas</a></li><li class=""><a href="/docs/en/testing.html" target="_self">Testing</a></li><li class=""><a href="/docs/en/intro_whisper.html" target="_self">Whisper</a></li><li class=""><a href="/docs/en/userguide.html" target="_self">User Guide</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class="siteNavGroupActive"><a href="/blog" target="_self">Blog</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/ja">日本語</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(){
+          if(languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Recent Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Recent Posts</h3><ul><li class="navListItem"><a class="navItem" href="/blog/2018/06/20/tech-talk-frank-ulc.html">TECH TALK: The Road to ULC</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/06/19/datasets-by-status.html">Datasets By Status</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/blog/2018/06/01/new-protocol.html">Status Communication Protocol Changes</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer documentContainer postContainer blogContainer"><div class="wrapper"><div class="lonePost"><div class="post"><header class="postHeader"><h1><a href="/blog/2018/06/01/new-protocol.html">Status Communication Protocol Changes</a></h1><p class="post-meta">June 1, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="http://twitter.com/cryptowanderer" target="_blank" rel="noreferrer noopener">Andy Tudhope and Eric Dvorsak</a></p></div></header><div><span><p>For the last year, Status has been focussed on research and development of the core protocols that make up Ethereum, especially Whisper - the &quot;dark&quot;, peer-to-peer, end-to-end encrypted messaging protocol. We have worked with various people to bring Whisper from v2 to v5 and now v6, both of which show great performance and reliability improvements, without compromising on the original vision of a truly decentralized chat protocol.</p>
+<!--truncate-->
+<p>However, there have been some big changes, like the inclusion of offline inboxing, so that we can offer better reliability for sending and receiving messages, especially when offline. Precisely because we are a decentralized community, we do not want to shy away from the problems we have encountered and how we have fixed them, because this is really what is most interesting.</p>
+<p>Networks like Ethereum - and the protocols on which they depend - are not &quot;delivered&quot;, they are built collaboratively and in the open. In that spirit, we are documenting in more public places the technical achievements, issues, and open questions we have generated since Jarrad first presented Status at DevCon 1.</p>
+<p>First up, I had a talk with Eric Dvorsak, one of the Clojure developers responsible for the new chat protocol we have built in the client. We talked about what's changed, the reasons for changing it, and possible future improvements to research.</p>
+<p>Eric is a one of a kind person, so settle in for the ride.</p>
+<h2><a class="anchor" aria-hidden="true" id="a-better-way-to-handle-whisper-in-the-client"></a><a href="#a-better-way-to-handle-whisper-in-the-client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A Better Way to Handle Whisper In the Client</h2>
+<ol>
+<li><p>Firstly, it's not really the <strong>new</strong> protocol, it's just the beta version of an evolving decentralized chat protocol.</p></li>
+<li><p>Basically,</p>
+<ol>
+<li>You have Whisper, the network communication protocol, which allows you to post messages with certain parameters.
+<ol>
+<li>It is multicast gossip protocol, meaning when you want to send a message to somebody, you send it to pretty much the whole network, and it bounces around with a payload (the message), a ttl (the time to live), and a proof-of-work (yes, whisper needs its own PoW to prevent spam).</li>
+<li>Messages are organised by topics, sort of like an address or ID on the envelope the message is sent in.</li>
+<li>Whisper was really intended for DApp to Dapp communication, so it is an open research question about whether it can handle millions of messages if we scale up to those kind of numbers.</li>
+</ol></li>
+<li>Status has built an overlay for this - our communication protocol.
+<ol>
+<li>This provides the primitives needed to use Whisper as a chat protocol.</li>
+<li>We are also researching Swarm and PSS, which is a protocol very closely related to Whisper, but trades off better and more efficient routing of messages for more potential metadata leaks (i.e. it is more obvious to tell who you are trying to send messages to).</li>
+</ol></li>
+</ol></li>
+<li><p>Let's talk a little about the upgrade from Whisper v5 to v6...</p>
+<ol>
+<li>The major change was the introduction of bloom filters, which result in a reduction of the traffic you are receiving at the cost of some privacy, because you need to &quot;advertise&quot; more about what you're interested in (i.e. which topics you're filtering).</li>
+<li>A <a href="https://en.wikipedia.org/wiki/Bloom_filter">bloom filter</a> is a data structure that is used for filtering the data you are interested in with false positives (some data you are not interested in pass through but you never miss data you were interested in).</li>
+</ol></li>
+<li><p>Status changed our protocol for handling messages with the v6 implementation.</p>
+<ol>
+<li>Status was originally using only one topic, so the bloom filter approach would have been ineffective.</li>
+<li>However, there are still trade offs involved here: you can use one topic, like #status, and make it obvious that you are using Status, or you can use multiple topics like in v6, but this may make it possible to develop a sort of &quot;footprint&quot; of your interests. This remains an area of research for now.</li>
+<li>The trade off is important though, because if you use only one, known topic, you make it easy for someone to spam that topic.</li>
+<li>That said, we still have this weakness in a sense, as contact requests rely on a single channel. This can and will be changed, using different channels, user-set channels, or completely offline key exchange.</li>
+<li>It might have been good to test multi vs single topic to see the effect using multiple topic has on Status' use of bandwidth, as more topics create a heavier load on the network.</li>
+</ol></li>
+<li><p>The changes were mostly about making it easier to do updates to the protocol in the future and make the code easier to understand and work with. Going through it just for the changes listed below was sort of like an archaeological dig.</p>
+<ol>
+<li>The documentation is very raw and people are constantly asking for help with experimenting with the latest Whisper, especially other teams of respected developers. We need to answer their calls for help.</li>
+<li>We have built out our protocol incrementally, and it was spread all over the place in areas where it perhaps not have been.</li>
+<li>We needed to &quot;re-contain&quot; all the protocol stuff so that it can be worked on in a more logical and focussed manner. If you have to go all over the codebase to fix something just related to the protocol, it's hard to reason about and test.</li>
+</ol></li>
+<li><p>The biggest changes to our client-side protocol were:</p>
+<ol>
+<li>1-1 chat was previously done with asymmetric encryption, and group chat was handled with symmetric keys. It was discussed whether we should use symmetric keys for 1-1 chat. For the go-team in particular, this was a preferable option for performance reasons.
+<ol>
+<li>However, Jacek thinks the performance improvements might be negligible, so it was not necessarily something that needed to be done.</li>
+<li>After some discussion, we then re-introduced asymmetric encryption for 1-1 chats. So, we use symmetric encryption only for contact updates at the moment.</li>
+<li>The choice is easily reversible both ways but it is a little unclear how signatures work exactly: we can dig deeper here for understanding and documentation.</li>
+<li>Part of a whisper message contains a signature field that allows you to verify it has been signed by a specific public-private key pair.</li>
+</ol></li>
+<li>Group chat was not really working (due to issues with key exchange for large groups, and deleting users from chats), so we tried to fix it. However, due to time constraints and the fact that the functionality of group chats was not clearly defined, especially in terms of their security properties, we pushed it for later and moved to focus on shipping beta, so it has not been further fleshed out.</li>
+<li>There were no big changes to public chat.</li>
+</ol></li>
+<li><p>After publishing the updates, there was a lot of discussion around - for instance - which encoding layer we should be using.</p>
+<ol>
+<li>Adria made the <a href="https://github.com/status-im/status-go-sdk">go-sdk</a>, which is all about using the chat primitives from the new protocol to interact with Whisper.</li>
+<li>This is really useful tool and should help us in terms of documenting Whisper and showing in an easy environment how to use and play with it as a developer, but this is not quite possible yet.</li>
+<li>We need a definitive document on Whisper as it currently stands, and the sdk can still be improved. Sebastien is working on the sdk currently.</li>
+<li>There needs to be further discussion about how to advance the cause for the sdk and Whisper documentation and further development of both whisper and our client side protocol.</li>
+<li>Perhaps it should not be an sdk, it should be part of status-go itself, so that if you are a go developer, you can just use status-go and tune in to what you want to hear and say.</li>
+<li>Most developers seem to want to use web3 (javascript), so having it in go might lose a large part of the developers who would be interested in using such a tool.
+<ol>
+<li>This is not a view held across the team - Jacek thinks we should design a good protocol to begin with and avoid any kind of vendor/API lock in.</li>
+</ol></li>
+</ol></li>
+</ol>
+<p>You can find more about the actual code changes and more directly technical stuff on our <a href="https://wiki.status.im/Status_Communication_Protocol">wiki</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="conclusions"></a><a href="#conclusions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusions</h2>
+<p>The doc detailing Whisper has been created, and just needs to be split up into easily-readable sections so that we don't just dump a 16-pager on people.
+Research into PSS, Swarm and other alternatives has also begun in earnest.
+That <a href="https://github.com/status-im/status-go-sdk">status-go-sdk</a> is also being actively developed, but this needs to be focussed on and owned. Hopefully @seb will handle that.</p>
+</span></div></div><div class="blogSocialSection"></div></div><div class="blog-recent"><a class="button" href="/blog">Recent Posts</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#a-better-way-to-handle-whisper-in-the-client">A Better Way to Handle Whisper In the Client</a></li><li><a href="#conclusions">Conclusions</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo_white.png" alt="Status Technikon" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/intro_dapps.html">Start with DApps</a><a href="/docs/en/build_status_osx.html">#Buidl Guides</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://chat.status.im">Riot Chat</a><a href="https://discuss.status.im">Research Forum</a><a href="https://twitter.com/ethstatus" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/status-im">GitHub</a><a class="github-button" href="https://github.com/status-im/status-react" data-icon="octicon-star" data-count-href="/status-im/status-react/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Status.im</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                
+                apiKey: 'my-api-key',
+                indexName: 'my-index-name',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>
