@@ -3,12 +3,12 @@
 <url> <loc>https://status.im/help.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/en/help.html" /> </url>
 <url> <loc>https://status.im/index.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/en/index.html" /> </url>
 <url> <loc>https://status.im/users.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/en/users.html" /> </url>
-<url> <loc>https://status.im/2018/06/20/tech-talk-frank-ulc</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
-<url> <loc>https://status.im/2018/06/19/datasets-by-status</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
-<url> <loc>https://status.im/2018/06/01/new-protocol</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://status.im/blog/2018/06/20/tech-talk-frank-ulc.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://status.im/blog/2018/06/19/datasets-by-status.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
+<url> <loc>https://status.im/blog/2018/06/01/new-protocol.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
 <url> <loc>https://status.im/docs/build_status_linux.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/build_status_linux.html" /> </url>
 <url> <loc>https://status.im/docs/build_status_osx.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/build_status_osx.html" /> </url>
-<url> <loc>https://status.im/docs/userguide.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/userguide.html" /> </url>
+<url> <loc>https://status.im/docs/contributing.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/contributing.html" /> </url>
 <url> <loc>https://status.im/docs/dapp_curation.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/dapp_curation.html" /> </url>
 <url> <loc>https://status.im/docs/embark.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/embark.html" /> </url>
 <url> <loc>https://status.im/docs/ens_usernames.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/ens_usernames.html" /> </url>
@@ -30,4 +30,5 @@
 <url> <loc>https://status.im/docs/testing_openbounty.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/testing_openbounty.html" /> </url>
 <url> <loc>https://status.im/docs/testing.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/testing.html" /> </url>
 <url> <loc>https://status.im/docs/tribute_to_talk.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/tribute_to_talk.html" /> </url>
+<url> <loc>https://status.im/docs/userguide.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/userguide.html" /> </url>
 </urlset>
