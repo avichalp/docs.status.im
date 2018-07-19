@@ -7,7 +7,7 @@
 <url> <loc>https://status.im/blog/2018/06/19/datasets-by-status.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
 <url> <loc>https://status.im/blog/2018/06/01/new-protocol.html</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
 <url> <loc>https://status.im/docs/build_status.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/build_status.html" /> </url>
-<url> <loc>https://status.im/docs/contributing.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/contributing.html" /> </url>
+<url> <loc>https://status.im/docs/contributor_guide.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/contributor_guide.html" /> </url>
 <url> <loc>https://status.im/docs/dapp_curation.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/dapp_curation.html" /> </url>
 <url> <loc>https://status.im/docs/embark.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/embark.html" /> </url>
 <url> <loc>https://status.im/docs/ens_usernames.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/ens_usernames.html" /> </url>
