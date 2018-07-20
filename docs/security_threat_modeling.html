@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Threat modeling with STRIDE · Status Technikon</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Threat modelling is a way to try to identify risks and threats in the"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Threat modeling with STRIDE · Status Technikon"/><meta property="og:type" content="website"/><meta property="og:url" content="https://status.im/index.html"/><meta property="og:description" content="Threat modelling is a way to try to identify risks and threats in the"/><meta property="og:image" content="https://status.im/img/og_logo.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://status.im/img/og_logo.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener("DOMContentLoaded", function(){
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo_white.png" alt="Status Technikon"/><h2 class="headerTitleWithLogo">Status Technikon</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://blog.status.im" target="_self">Blog</a></li><li class=""><a href="https://chat.status.im/#/register" target="_self">Riot</a></li><li class=""><a href="https://github.com/status-im/" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/status-im/docs.status.im/edit/develop/docs/security_threat_modeling.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Threat modeling with STRIDE</h1></header><article><div><span><p>Threat modelling is a way to try to identify risks and threats in the
+application. It usually is done from the <em>point of view of an attacker</em>.</p>
+<h2><a class="anchor" aria-hidden="true" id="threat-modeling-basics"></a><a href="#threat-modeling-basics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Threat modeling basics</h2>
+<ol>
+<li><p>Understand the system or the feature.</p>
+<ul>
+<li><p>is there any sensitive information?</p></li>
+<li><p>what is the security perimeter of the app?</p></li>
+<li><p>where does data pass the perimeter?</p></li>
+</ul></li>
+<li><p>What can go wrong?</p>
+<ul>
+<li>STRIDE modelling
+<ul>
+<li>feature</li>
+<li>information tranferring endpoints</li>
+<li>data flows</li>
+</ul></li>
+</ul></li>
+<li><p>What are we going to do about it?</p>
+<ul>
+<li><p>assess risks value and decide how to mitigate them;</p></li>
+<li><p>document the decisions;</p></li>
+</ul></li>
+<li><p>Did we do a good job?</p>
+<ul>
+<li><p>Does the diagram represents the system well?</p></li>
+<li><p>Did we found at least 5 threats per every thing in the diagram including
+the data flows?</p></li>
+<li><p>Did we document each threat?</p></li>
+</ul></li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="stride"></a><a href="#stride" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>STRIDE</h2>
+<p>STRIDE is an acronym that stands for: Spoofing, Tampering, Repudiation,
+Information disclosure, Denial of service, Elevation of priviledge.</p>
+<p>We try to apply all 6 attack types to every component or data flow of the
+system and coming up with the possible attack vectors.</p>
+<h3><a class="anchor" aria-hidden="true" id="spoofing"></a><a href="#spoofing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spoofing</h3>
+<p>Pretending you are someone/something you are not.</p>
+<p><em>Example: &quot;Advisary can pretend to be a Status Bot and request Money to &quot;Unblock&quot; user's account.&quot;</em></p>
+<h3><a class="anchor" aria-hidden="true" id="tampering"></a><a href="#tampering" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tampering</h3>
+<p>Changing something in the app's storage or memory or networking.</p>
+<p><em>Example: &quot;A malicious application can read our debug logs and get the
+password from there&quot;.</em></p>
+<h3><a class="anchor" aria-hidden="true" id="repudiation"></a><a href="#repudiation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Repudiation</h3>
+<p>Claiming that you didn't do something you did. Like you didn't transfer money
+while you did. Cleaning up the logs counts here.</p>
+<p>Claiming that something is invalid while it is valid.</p>
+<p><em>Example: A DApp claiming that the transaction didn't go through.</em></p>
+<h3><a class="anchor" aria-hidden="true" id="information-disclosure"></a><a href="#information-disclosure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Information disclosure</h3>
+<p>Leaking any information to any parties that aren't allowed to read it. That is
+not only about leaking it to the public, but also between accounts, etc.</p>
+<p><em>Example: Ethereum Node failed to restart on signout and discloses the keys and message
+history to another user.</em></p>
+<h3><a class="anchor" aria-hidden="true" id="denial-of-service"></a><a href="#denial-of-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Denial Of Service</h3>
+<p>Somehow waste all the app resources that it can't do it's main job.</p>
+<p><em>Example: User sends multiple huge messages and no one in the chatroom can
+type anymore, because the phone is processing it too slowly.</em></p>
+<h3><a class="anchor" aria-hidden="true" id="elevation-of-priviledge"></a><a href="#elevation-of-priviledge" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Elevation Of Priviledge</h3>
+<p>Doing something in the app that you don't have permissions to.</p>
+<p><em>Example: Due to an error, it is possible to sign a transaction as another
+user.</em></p>
+<p>Now, when we know the types of attacks, how do we use them to threat model?</p>
+<p>There are two useful questions that we can ask ourselves:</p>
+<ul>
+<li><p>&quot;How using this feature of our app can an advisory do <code>&lt;attack type&gt;</code>?&quot;
+(Example: How using universal links can an advisory do a spoofing attack?).</p></li>
+<li><p>&quot;How using this <code>&lt;attack type&gt;</code> can an advisory get access to <code>&lt;sensitive info&gt;</code>?&quot;
+(Example: How using Tampering can an advisory get access to Recovery Phrase?)</p></li>
+</ul>
+<p>Also, there is a card game called <a href="https://www.microsoft.com/en-us/sdl/adopt/eop.aspx">&quot;Elevation of Priviledge&quot;</a>. It can help to threat model as well.
+Download it, print out the cards and play!</p>
+<h2><a class="anchor" aria-hidden="true" id="ux-and-security"></a><a href="#ux-and-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>‼️ UX and Security</h2>
+<p>Being a developer or a QA, it is very easy to come up with technical threats
+and technial solutions to them, leaving the &quot;user errors&quot; aside.</p>
+<p>That leaves out a huge amount of threats and risk mitigations aside. <strong>If it is
+easy for a user to make an error in our app, it is our problem and we need to
+fix that.</strong></p>
+<p>Pay precise attention on the UX problems, &quot;user errors&quot; and social engineering
+while doing threat modeling!</p>
+<p>Read these articles to understand how issues in UX might make security features
+essentially pointless:</p>
+<ul>
+<li><a href="https://people.eecs.berkeley.edu/%7Etygar/papers/Why_Johnny_Cant_Encrypt/OReilly.pdf">&quot;Why Johnny Can't Encrypt (PGP 5 1999)&quot;</a></li>
+<li><a href="https://cups.cs.cmu.edu/soups/2006/posters/sheng-poster_abstract.pdf">&quot;Why Johnny Still Can’t Encrypt (PGP 9, 2006)&quot;</a></li>
+<li><a href="https://arxiv.org/pdf/1510.08555.pdf">&quot;Why Johnny Still, Still Can’t Encrypt (Mailvelope, 2015)&quot;</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="privacy-security"></a><a href="#privacy-security" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Privacy &amp; Security</h2>
+<p>STRIDE model that will be discussed further is typically focused on security
+aspects. Privacy, on the other hand, might be left off.</p>
+<p>In Status, we shouldn't put users' privacy at risk, so when doing the threat
+analysis also take into account how this feature/change/module/dataflow will
+affect users' privacy.</p>
+<p>Educate yourself about user privacy <a href="https://msdn.microsoft.com/en-us/library/aa480490.aspx">here</a> or <a href="https://en.wikipedia.org/wiki/Internet_privacy">here</a>.</p>
+<p>Take into account all the privacy aspects of any given feature/module/change.</p>
+<h2><a class="anchor" aria-hidden="true" id="scoring-risks"></a><a href="#scoring-risks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scoring risks</h2>
+<p>With scoring risks, repeatability is an important thing to gain. To do that, we
+will use <a href="https://www.owasp.org/index.php/OWASP_Risk_Rating_Methodology">OWASP Risk Rating Methodology</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="handling-risks-and-scores"></a><a href="#handling-risks-and-scores" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Handling Risks and Scores</h3>
+<ul>
+<li><p>All HIGH and CRITICAL risks should be documented (either as a checklist in
+the feature's GHI or as separate issues);</p></li>
+<li><p>Usually, all HIGH and CRITICAL risks should be addressed and mitigated before the PR
+is merged;</p></li>
+<li><p>Exceptions can be made but they should be documented and a separate GHI
+should be created for such risks.</p></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="learn-more"></a><a href="#learn-more" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Learn more</h2>
+<p><a href="https://www.microsoft.com/en-us/sdl/adopt/eop.aspx">&quot;Elevation Of Priviledge&quot; card game</a></p>
+<p><a href="https://misti.com/infosec-insider/threat-modeling-what-why-and-how">Threat Modelling: What, Why and How?</a></p>
+<p><a href="https://www.youtube.com/watch?v=7Jk1GCvJnpM&amp;t=6350s">YouTube Presentation from Basel</a></p>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#threat-modeling-basics">Threat modeling basics</a></li><li><a href="#stride">STRIDE</a><ul class="toc-headings"><li><a href="#spoofing">Spoofing</a></li><li><a href="#tampering">Tampering</a></li><li><a href="#repudiation">Repudiation</a></li><li><a href="#information-disclosure">Information disclosure</a></li><li><a href="#denial-of-service">Denial Of Service</a></li><li><a href="#elevation-of-priviledge">Elevation Of Priviledge</a></li></ul></li><li><a href="#ux-and-security">‼️ UX and Security</a></li><li><a href="#privacy-security">Privacy &amp; Security</a></li><li><a href="#scoring-risks">Scoring risks</a><ul class="toc-headings"><li><a href="#handling-risks-and-scores">Handling Risks and Scores</a></li></ul></li><li><a href="#learn-more">Learn more</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo_white.png" alt="Status Technikon" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/intro_dapps.html">Start with DApps</a><a href="/docs/en/build_status.html">#Build Guides</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://chat.status.im">Riot Chat</a><a href="https://discuss.status.im">Research Forum</a><a href="https://twitter.com/ethstatus" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/status-im">GitHub</a><a class="github-button" href="https://github.com/status-im/status-react" data-icon="octicon-star" data-count-href="/status-im/status-react/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Status.im</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                
+                apiKey: '8e12bdadff441d3df9f9c77d7d4a3650',
+                indexName: 'status_technikon',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>
