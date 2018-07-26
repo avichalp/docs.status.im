@@ -20,3 +20,4 @@ title: ENS Usernames in Status
 
 #### 2. Click on an address to copy to clipboard
 ![copy_to_clipboard](https://user-images.githubusercontent.com/4020296/41742004-b94c68fe-756a-11e8-9001-00b511d00858.gif)
+
