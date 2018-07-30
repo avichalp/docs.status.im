@@ -34,6 +34,7 @@
 <url> <loc>https://status.im/docs/status_optimized.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/status_optimized.html" /> </url>
 <url> <loc>https://status.im/docs/status_react_structure.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/status_react_structure.html" /> </url>
 <url> <loc>https://status.im/docs/status_uses_openbounty.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/status_uses_openbounty.html" /> </url>
+<url> <loc>https://status.im/docs/status_web_api.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/status_web_api.html" /> </url>
 <url> <loc>https://status.im/docs/testing_openbounty.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/testing_openbounty.html" /> </url>
 <url> <loc>https://status.im/docs/testing.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/testing.html" /> </url>
 <url> <loc>https://status.im/docs/tribute_to_talk.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/tribute_to_talk.html" /> </url>
