@@ -10,6 +10,7 @@
 <url> <loc>https://status.im/docs/contributor_guide.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/contributor_guide.html" /> </url>
 <url> <loc>https://status.im/docs/embark.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/embark.html" /> </url>
 <url> <loc>https://status.im/docs/ens_usernames.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/ens_usernames.html" /> </url>
+<url> <loc>https://status.im/docs/extensions_tutorial_chat_command.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/extensions_tutorial_chat_command.html" /> </url>
 <url> <loc>https://status.im/docs/faq_openbounty.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/faq_openbounty.html" /> </url>
 <url> <loc>https://status.im/docs/faqs.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/faqs.html" /> </url>
 <url> <loc>https://status.im/docs/intro_dapps.html</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://status.im/docs/intro_dapps.html" /> </url>

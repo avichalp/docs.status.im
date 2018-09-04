@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Extension chat command tutorial · Status Technikon</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Write a chat command"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Extension chat command tutorial · Status Technikon"/><meta property="og:type" content="website"/><meta property="og:url" content="https://status.im/index.html"/><meta property="og:description" content="# Write a chat command"/><meta property="og:image" content="https://status.im/img/og_logo.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://status.im/img/og_logo.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener("DOMContentLoaded", function(){
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo_white.png" alt="Status Technikon"/><h2 class="headerTitleWithLogo">Status Technikon</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="https://blog.status.im/tag/technikon" target="_self">Blog</a></li><li class=""><a href="https://chat.status.im/#/register" target="_self">Riot</a></li><li class=""><a href="/docs/testing.html" target="_self">Test Status</a></li><li class=""><a href="https://github.com/status-im/" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Build DApps</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/docs/introduction.html">Welcome to Status</a></li><li class="navListItem"><a class="navItem" href="/docs/faqs.html">Frequently Asked Questions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Build Status</h3><ul><li class="navListItem"><a class="navItem" href="/docs/build_status.html">Quick Start</a></li><li class="navListItem"><a class="navItem" href="/docs/contributor_guide.html">Contribute to Status</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Build DApps</h3><ul><li class="navListItem"><a class="navItem" href="/docs/embark.html">Embark by Status</a></li><li class="navListItem"><a class="navItem" href="/docs/status_optimized.html">Optimize Your DApp for Status</a></li><li class="navListItem"><a class="navItem" href="/docs/status_web_api.html">Status JavaScript API</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/extensions_tutorial_chat_command.html">Extension chat command tutorial</a></li></ul></div></div></section></div><script>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/status-im/docs.status.im/edit/develop/docs/extensions_tutorial_chat_command.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Extension chat command tutorial</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="write-a-chat-command"></a><a href="#write-a-chat-command" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Write a chat command</h1>
+<p>One of the main use cases for extensions is to add new chat commands. This tutorial will go step by step through the creation and deployment of a chat command allwong to send NFTs.</p>
+<h2><a class="anchor" aria-hidden="true" id="add-meta-data"></a><a href="#add-meta-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add meta data</h2>
+<p>First step is to create the skeleton extension with some relevant metadata:</p>
+<pre><code class="hljs css languages- clojure">{meta {<span class="hljs-symbol">:name</span>          <span class="hljs-string">"My command name"</span>
+       <span class="hljs-symbol">:description</span>   <span class="hljs-string">"My command description"</span>
+       <span class="hljs-symbol">:documentation</span> <span class="hljs-string">"Some more details can go there"</span>}}
+</code></pre>
+<p>Metadata will be displayed to the end user before installing an extension.</p>
+<h2><a class="anchor" aria-hidden="true" id="define-hook-entry-point-chat-command"></a><a href="#define-hook-entry-point-chat-command" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define hook entry point (chat command)</h2>
+<p>Hooks identify what part of status will be extended. Each hook has a unique identifier and a set of key/value elements specific to this hook.
+An extension can implement several hooks.</p>
+<p>In this tutorial a chat command is created: it's id is <code>collectible</code> and the hook type for a chat command is <code>commands</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="scope"></a><a href="#scope" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scope</h3>
+<p>Scope can be any combination of:</p>
+<ul>
+<li>personal-chats</li>
+<li>group-chats</li>
+<li>public-chats</li>
+</ul>
+<p>Here we will only support <code>personal-chats</code>.</p>
+<pre><code class="hljs css languages- clojure">{hooks/commands.collectible
+ {...
+  <span class="hljs-symbol">:scope</span> #{<span class="hljs-symbol">:personal-chats</span>}}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="previews"></a><a href="#previews" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Previews</h3>
+<p>Previews are used to display the result of a command in a chat. Short previews will be displayed in the Home panel.
+Both previews must point to definition of UI in <a href="https://github.com/weavejester/hiccup/wiki/Syntax">Hiccup syntax</a> using a combination of views, queries and events supported by status host.</p>
+<p>More details can be found <a href="https://status-im.github.io/pluto/docs/concepts/Anatomy.html">here</a>.</p>
+<p>Previews receive data from status matching the message details. Those can be referenced in a view using the <code>properties</code> reference.</p>
+<p>Short preview definition:</p>
+<pre><code class="hljs css languages- clojure">{views/short-preview
+ (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [{{{symbol <span class="hljs-symbol">:symbol</span>} <span class="hljs-symbol">:params</span>} <span class="hljs-symbol">:content</span> outgoing <span class="hljs-symbol">:outgoing</span>} properties]
+   [view {<span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:row</span>
+          <span class="hljs-symbol">:align-items</span>    <span class="hljs-symbol">:flex-start</span>}
+     [text (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> outgoing <span class="hljs-string">"Sent "</span> <span class="hljs-string">"Received "</span>)]
+     [text symbol]])}
+</code></pre>
+<p><code>properties</code> data is accessed using <a href="https://status-im.github.io/pluto/docs/concepts/View.html#destructuring">destructuring</a>.
+<code>text</code> and <code>view</code> are view elements available for all hosts.
+<code>if</code> is a block providing conditional logic.</p>
+<p>Preview definition:</p>
+<pre><code class="hljs css languages- clojure">{views/preview
+ (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [{{{symbol <span class="hljs-symbol">:symbol</span> token <span class="hljs-symbol">:token</span> tx-hash <span class="hljs-symbol">:tx-hash</span>} <span class="hljs-symbol">:params</span>} <span class="hljs-symbol">:content</span> outgoing <span class="hljs-symbol">:outgoing</span> timestamp-str <span class="hljs-symbol">:timestamp-str</span>} properties
+        collectible-token [get-collectible-token {<span class="hljs-symbol">:symbol</span> symbol <span class="hljs-symbol">:token</span> token}]
+    [view {<span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:column</span>
+           <span class="hljs-symbol">:align-items</span>    <span class="hljs-symbol">:flex-start</span>}
+    [status/nft-token collectible-token]
+    [view {<span class="hljs-symbol">:color</span>          (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> outgoing <span class="hljs-string">"#707caf"</span> <span class="hljs-string">"#939ba1"</span>)
+        <span class="hljs-symbol">:margin-top</span>     <span class="hljs-number">6</span>
+        <span class="hljs-symbol">:font-size</span>      <span class="hljs-number">12</span>
+        <span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:row</span>}
+    [text <span class="hljs-string">"Sent at "</span>]
+    [text timestamp-str]]
+    [status/send-status {<span class="hljs-symbol">:tx-hash</span> tx-hash <span class="hljs-symbol">:outgoing</span> outgoing}]])}
+</code></pre>
+<p><code>status/nft-token</code> and <code>status/send-status</code> are view element specific to status.
+<code>[status/get-collectible-token {:symbol symbol :token token}]</code> is a query giving access to details for a specific collectible.</p>
+<h3><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<p>The NFT chat command has 2 required parameters: the NFT type and the specific NFT you want to exchange.
+Both will use Status UI components to provide a nice visual selection experience.</p>
+<p>A parameter is identified by its <code>id</code> and must define a <code>type</code> and a <code>placeholder</code> (any string).
+<code>type</code> semantics are documented <a href="">here</a>. In this tutorial <code>:text</code> and <code>:number</code> will be used.
+<code>suggestions</code> can be optionally provided and must points to a <code>view</code>.</p>
+<pre><code class="hljs css languages- clojure">{hooks/commands.collectible
+ {...
+  <span class="hljs-symbol">:parameters</span>    [{<span class="hljs-symbol">:id</span>          <span class="hljs-symbol">:symbol</span>
+                   <span class="hljs-symbol">:type</span>        <span class="hljs-symbol">:text</span>
+                   <span class="hljs-symbol">:placeholder</span> <span class="hljs-string">"Collectible symbol"</span>
+                   <span class="hljs-symbol">:suggestions</span> status/asset-selector}
+                  {<span class="hljs-symbol">:id</span>          <span class="hljs-symbol">:token</span>
+                   <span class="hljs-symbol">:type</span>        <span class="hljs-symbol">:number</span>
+                   <span class="hljs-symbol">:placeholder</span> <span class="hljs-string">"Collectible token"</span>
+                   <span class="hljs-symbol">:suggestions</span> status/token-selector}]}}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="deploy"></a><a href="#deploy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deploy</h2>
+<p>Extensions are identified by a URI and can be loaded in status via a universal link.</p>
+<p>Currently only GitHub gist is supported as provider.</p>
+<p>A universal link pointing to an extension would then look like: <code>https://get.status.im/extension/gist@janherich/92747e730b2e115bcbe145114d024e66</code></p>
+<h2><a class="anchor" aria-hidden="true" id="use"></a><a href="#use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Use</h2>
+<p>The simplest option is to scan a QR code pointing to your extension. You can also navigate to status user profile and open the <code>Extensions</code> item in the <code>Advanced</code> section.
+This option is only available in developer mode.</p>
+<p><img src="/docs/assets/extensions/profile.jpg" alt="alt-text"></p>
+<p><img src="/docs/assets/extensions/add.jpg" alt="alt-text"></p>
+<p>Once loaded, details about an extension are available.</p>
+<p><img src="/docs/assets/extensions/install.jpg" alt="alt-text"></p>
+<p>An extension can then be installed. Once installed all hooks are <code>active</code>.</p>
+<p>Any extension can then be <code>deactivated</code> or re-<code>activated</code>. Associated hooks will then be removed/added from Status.</p>
+<p><img src="/docs/assets/extensions/list.jpg" alt="alt-text"></p>
+<p>You can now use your new extension from within a 1-1 chat.</p>
+<p><img src="/docs/assets/extensions/collectible-type.jpg" alt="alt-text"></p>
+<p><img src="/docs/assets/extensions/collectible-token.jpg" alt="alt-text"></p>
+<p><img src="/docs/assets/extensions/collectible-preview.jpg" alt="alt-text"></p>
+<h2><a class="anchor" aria-hidden="true" id="full-extension-code"></a><a href="#full-extension-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Full extension code</h2>
+<pre><code class="hljs css languages- clojure">{meta {<span class="hljs-symbol">:name</span>          <span class="hljs-string">"Collectibles"</span>
+       <span class="hljs-symbol">:description</span>   <span class="hljs-string">"Demonstration of collectible command"</span>
+       <span class="hljs-symbol">:documentation</span> <span class="hljs-string">"Some nice documentation"</span>}
+
+ views/preview
+ (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [{{{symbol <span class="hljs-symbol">:symbol</span> token <span class="hljs-symbol">:token</span> tx-hash <span class="hljs-symbol">:tx-hash</span>} <span class="hljs-symbol">:params</span>} <span class="hljs-symbol">:content</span> outgoing <span class="hljs-symbol">:outgoing</span> timestamp-str <span class="hljs-symbol">:timestamp-str</span>} properties
+        collectible-token [get-collectible-token {<span class="hljs-symbol">:symbol</span> symbol <span class="hljs-symbol">:token</span> token}]
+    [view {<span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:column</span>
+           <span class="hljs-symbol">:align-items</span>    <span class="hljs-symbol">:flex-start</span>}
+    [status/nft-token collectible-token]
+    [view {<span class="hljs-symbol">:color</span>          (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> outgoing <span class="hljs-string">"#707caf"</span> <span class="hljs-string">"#939ba1"</span>)
+           <span class="hljs-symbol">:margin-top</span>     <span class="hljs-number">6</span>
+           <span class="hljs-symbol">:font-size</span>      <span class="hljs-number">12</span>
+           <span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:row</span>}
+    [text <span class="hljs-string">"Sent at "</span>]
+    [text timestamp-str]]
+    [status/send-status {<span class="hljs-symbol">:tx-hash</span> tx-hash <span class="hljs-symbol">:outgoing</span> outgoing}]])
+
+ views/short-preview
+ (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [{{{symbol <span class="hljs-symbol">:symbol</span>} <span class="hljs-symbol">:params</span>} <span class="hljs-symbol">:content</span> outgoing <span class="hljs-symbol">:outgoing</span>} properties]
+   [view {<span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:row</span>
+          <span class="hljs-symbol">:align-items</span>    <span class="hljs-symbol">:flex-start</span>}
+     [text (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> outgoing <span class="hljs-string">"Sent "</span> <span class="hljs-string">"Received "</span>)]
+     [text symbol]])
+
+hooks/commands.collectible
+{<span class="hljs-symbol">:description</span>   <span class="hljs-string">"Collectible"</span>
+ <span class="hljs-symbol">:scope</span>         #{<span class="hljs-symbol">:personal-chats</span>}
+ <span class="hljs-symbol">:preview</span>       preview
+ <span class="hljs-symbol">:short-preview</span> short-preview
+ <span class="hljs-symbol">:parameters</span>    [{<span class="hljs-symbol">:id</span>          <span class="hljs-symbol">:symbol</span>
+                  <span class="hljs-symbol">:type</span>        <span class="hljs-symbol">:text</span>
+                  <span class="hljs-symbol">:placeholder</span> <span class="hljs-string">"Collectible symbol"</span>
+                  <span class="hljs-symbol">:suggestions</span> status/asset-selector}
+                 {<span class="hljs-symbol">:id</span>          <span class="hljs-symbol">:token</span>
+                  <span class="hljs-symbol">:type</span>        <span class="hljs-symbol">:number</span>
+                  <span class="hljs-symbol">:placeholder</span> <span class="hljs-string">"Collectible token"</span>
+                  <span class="hljs-symbol">:suggestions</span> status/token-selector}]}}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/status_web_api.html">← Status JavaScript API</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#add-meta-data">Add meta data</a></li><li><a href="#define-hook-entry-point-chat-command">Define hook entry point (chat command)</a><ul class="toc-headings"><li><a href="#scope">Scope</a></li><li><a href="#previews">Previews</a></li><li><a href="#parameters">Parameters</a></li></ul></li><li><a href="#deploy">Deploy</a></li><li><a href="#use">Use</a></li><li><a href="#full-extension-code">Full extension code</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo_white.png" alt="Status Technikon" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/intro_dapps.html">Start with DApps</a><a href="/docs/en/build_status.html">#Build Guides</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://chat.status.im">Riot Chat</a><a href="https://discuss.status.im">Research Forum</a><a href="https://twitter.com/ethstatus" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/status-im">GitHub</a><a class="github-button" href="https://github.com/status-im/status-react" data-icon="octicon-star" data-count-href="/status-im/status-react/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2018 Status.im</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+              var search = docsearch({
+                
+                apiKey: '8e12bdadff441d3df9f9c77d7d4a3650',
+                indexName: 'status_technikon',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>
