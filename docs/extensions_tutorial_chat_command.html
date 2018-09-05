@@ -28,7 +28,7 @@
               }
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/status-im/docs.status.im/edit/develop/docs/extensions_tutorial_chat_command.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Extension chat command tutorial</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="write-a-chat-command"></a><a href="#write-a-chat-command" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Write a chat command</h1>
-<p>One of the main use cases for extensions is to add new chat commands. This tutorial will go step by step through the creation and deployment of a chat command allwong to send NFTs.</p>
+<p>One of the main use case for extensions is to add new chat commands. This tutorial will go step by step through the creation and deployment of a chat command allowing to send NFTs.</p>
 <h2><a class="anchor" aria-hidden="true" id="add-meta-data"></a><a href="#add-meta-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add meta data</h2>
 <p>First step is to create the skeleton extension with some relevant metadata:</p>
 <pre><code class="hljs css languages- clojure">{meta {<span class="hljs-symbol">:name</span>          <span class="hljs-string">"My command name"</span>
@@ -39,8 +39,13 @@
 <h2><a class="anchor" aria-hidden="true" id="define-hook-entry-point-chat-command"></a><a href="#define-hook-entry-point-chat-command" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Define hook entry point (chat command)</h2>
 <p>Hooks identify what part of status will be extended. Each hook has a unique identifier and a set of key/value elements specific to this hook.
 An extension can implement several hooks.</p>
-<p>In this tutorial a chat command is created: it's id is <code>collectible</code> and the hook type for a chat command is <code>commands</code>.</p>
-<p>PLACEHOLDER: Overview of <code>commands</code> structure here</p>
+<p>In this tutorial a chat command is created: it's specific id is <code>collectible</code> and the generic hook type for a chat command is <code>commands</code>.</p>
+<p>A <code>command</code> hook requires the following properties to be set:</p>
+<ul>
+<li>scope</li>
+<li>preview and short-preview</li>
+<li>parameters</li>
+</ul>
 <h3><a class="anchor" aria-hidden="true" id="scope"></a><a href="#scope" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scope</h3>
 <p>Scope can be any combination of:</p>
 <ul>
@@ -51,15 +56,15 @@ An extension can implement several hooks.</p>
 <p>Here we will demonstrate <code>personal-chats</code>.</p>
 <pre><code class="hljs css languages- clojure">{hooks/commands.collectible
  {...
-  <span class="hljs-symbol">:scope</span> #{<span class="hljs-symbol">:personal-chats</span>}}
+  <span class="hljs-symbol">:scope</span> #{<span class="hljs-symbol">:personal-chats</span>}} <span class="hljs-comment">;; Could be #{:personal-chats :group-chats}</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="previews"></a><a href="#previews" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Previews</h3>
-<p><code>Previews</code> are used to display the result of a command in a chat.</p>
-<p><code>Short previews</code> will be displayed in the Home panel of Status.</p>
+<p><code>Previews</code> are used to display the result of a command execution in a chat.</p>
+<p><code>Short previews</code> will be displayed as last message in the chat item of the Home tab of Status.</p>
 <p>Both previews must point to definition of UI in <a href="https://github.com/weavejester/hiccup/wiki/Syntax">Hiccup syntax</a> using a combination of views, queries and events supported by status host.</p>
 <p>More details can be found <a href="https://status-im.github.io/pluto/docs/concepts/Anatomy.html">here</a>.</p>
-<p>Previews receive data from status matching the message details. Those can be referenced in a view using the <code>properties</code> reference.</p>
-<p>Short preview definition:</p>
+<p>Previews receive data from status encapsulating the parameters provided by the end user and some relevant contextual information. Those can be accessed in a view using the <code>properties</code> reference.</p>
+<p>Our short preview definition:</p>
 <pre><code class="hljs css languages- clojure">{views/short-preview
  (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [{{{symbol <span class="hljs-symbol">:symbol</span>} <span class="hljs-symbol">:params</span>} <span class="hljs-symbol">:content</span> outgoing <span class="hljs-symbol">:outgoing</span>} properties]
    [view {<span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:row</span>
@@ -70,7 +75,7 @@ An extension can implement several hooks.</p>
 <p><code>properties</code> data is accessed using <a href="https://status-im.github.io/pluto/docs/concepts/View.html#destructuring">destructuring</a>.
 <code>text</code> and <code>view</code> are view elements available for all hosts.
 <code>if</code> is a block providing conditional logic.</p>
-<p>Preview definition:</p>
+<p>Our preview definition:</p>
 <pre><code class="hljs css languages- clojure">{views/preview
  (<span class="hljs-name"><span class="hljs-builtin-name">let</span></span> [{{{symbol <span class="hljs-symbol">:symbol</span> token <span class="hljs-symbol">:token</span> tx-hash <span class="hljs-symbol">:tx-hash</span>} <span class="hljs-symbol">:params</span>} <span class="hljs-symbol">:content</span> outgoing <span class="hljs-symbol">:outgoing</span> timestamp-str <span class="hljs-symbol">:timestamp-str</span>} properties
         collectible-token [get-collectible-token {<span class="hljs-symbol">:symbol</span> symbol <span class="hljs-symbol">:token</span> token}]
@@ -78,9 +83,9 @@ An extension can implement several hooks.</p>
            <span class="hljs-symbol">:align-items</span>    <span class="hljs-symbol">:flex-start</span>}
     [status/nft-token collectible-token]
     [view {<span class="hljs-symbol">:color</span>          (<span class="hljs-name"><span class="hljs-builtin-name">if</span></span> outgoing <span class="hljs-string">"#707caf"</span> <span class="hljs-string">"#939ba1"</span>)
-        <span class="hljs-symbol">:margin-top</span>     <span class="hljs-number">6</span>
-        <span class="hljs-symbol">:font-size</span>      <span class="hljs-number">12</span>
-        <span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:row</span>}
+           <span class="hljs-symbol">:margin-top</span>     <span class="hljs-number">6</span>
+           <span class="hljs-symbol">:font-size</span>      <span class="hljs-number">12</span>
+           <span class="hljs-symbol">:flex-direction</span> <span class="hljs-symbol">:row</span>}
     [text <span class="hljs-string">"Sent at "</span>]
     [text timestamp-str]]
     [status/send-status {<span class="hljs-symbol">:tx-hash</span> tx-hash <span class="hljs-symbol">:outgoing</span> outgoing}]])}
@@ -91,8 +96,8 @@ An extension can implement several hooks.</p>
 <p>The NFT chat command has 2 required parameters: the NFT type and the specific NFT you want to exchange.
 Both will use Status UI components to provide a nice visual selection experience.</p>
 <p>A parameter is identified by its <code>id</code> and must define a <code>type</code> and a <code>placeholder</code> (any string).
-<code>type</code> semantics are documented <a href="">here</a>. In this tutorial <code>:text</code> and <code>:number</code> will be used.
-<code>suggestions</code> can be optionally provided and must points to a <code>view</code>.</p>
+In this tutorial <code>:text</code> and <code>:number</code> will be used.
+<code>suggestions</code> can be optionally provided and must point to a <code>view</code>.</p>
 <pre><code class="hljs css languages- clojure">{hooks/commands.collectible
  {...
   <span class="hljs-symbol">:parameters</span>    [{<span class="hljs-symbol">:id</span>          <span class="hljs-symbol">:symbol</span>
@@ -149,8 +154,7 @@ This option is only available in developer mode.</p>
      [text symbol]])
 
 hooks/commands.collectible
-{<span class="hljs-symbol">:description</span>   <span class="hljs-string">"Collectible"</span>
- <span class="hljs-symbol">:scope</span>         #{<span class="hljs-symbol">:personal-chats</span>}
+{<span class="hljs-symbol">:scope</span>         #{<span class="hljs-symbol">:personal-chats</span>}
  <span class="hljs-symbol">:preview</span>       preview
  <span class="hljs-symbol">:short-preview</span> short-preview
  <span class="hljs-symbol">:parameters</span>    [{<span class="hljs-symbol">:id</span>          <span class="hljs-symbol">:symbol</span>
