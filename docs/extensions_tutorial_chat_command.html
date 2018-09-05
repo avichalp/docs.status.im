@@ -40,6 +40,7 @@
 <p>Hooks identify what part of status will be extended. Each hook has a unique identifier and a set of key/value elements specific to this hook.
 An extension can implement several hooks.</p>
 <p>In this tutorial a chat command is created: it's id is <code>collectible</code> and the hook type for a chat command is <code>commands</code>.</p>
+<p>PLACEHOLDER: Overview of <code>commands</code> structure here</p>
 <h3><a class="anchor" aria-hidden="true" id="scope"></a><a href="#scope" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scope</h3>
 <p>Scope can be any combination of:</p>
 <ul>
@@ -47,14 +48,15 @@ An extension can implement several hooks.</p>
 <li>group-chats</li>
 <li>public-chats</li>
 </ul>
-<p>Here we will only support <code>personal-chats</code>.</p>
+<p>Here we will demonstrate <code>personal-chats</code>.</p>
 <pre><code class="hljs css languages- clojure">{hooks/commands.collectible
  {...
   <span class="hljs-symbol">:scope</span> #{<span class="hljs-symbol">:personal-chats</span>}}
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="previews"></a><a href="#previews" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Previews</h3>
-<p>Previews are used to display the result of a command in a chat. Short previews will be displayed in the Home panel.
-Both previews must point to definition of UI in <a href="https://github.com/weavejester/hiccup/wiki/Syntax">Hiccup syntax</a> using a combination of views, queries and events supported by status host.</p>
+<p><code>Previews</code> are used to display the result of a command in a chat.</p>
+<p><code>Short previews</code> will be displayed in the Home panel of Status.</p>
+<p>Both previews must point to definition of UI in <a href="https://github.com/weavejester/hiccup/wiki/Syntax">Hiccup syntax</a> using a combination of views, queries and events supported by status host.</p>
 <p>More details can be found <a href="https://status-im.github.io/pluto/docs/concepts/Anatomy.html">here</a>.</p>
 <p>Previews receive data from status matching the message details. Those can be referenced in a view using the <code>properties</code> reference.</p>
 <p>Short preview definition:</p>
